@@ -13,3 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "...${{github.repository}}"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      # - with:
+      #   node-version: 20.7.0
+      - name: 'npm 설치'
+        run: npm install
+      - name: 'npm 실행'
+        run: node index.js
