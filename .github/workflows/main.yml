@@ -11,13 +11,13 @@ jobs:
   Job-Test:
     #컨테이너를 지정
     runs-on: ubuntu-latest
+    name: 'NPM 시작'
     steps:
       - run: echo "...${{github.repository}}"
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      # - with:
-      #   node-version: 20.7.0
-      - name: 'npm 설치'
-        run: npm install
-      - name: 'npm 실행'
-        run: node index.js
+      - name: Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.7.0
+      - run: npm install
+      - run: node index.js
